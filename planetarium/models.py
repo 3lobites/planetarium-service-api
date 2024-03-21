@@ -14,6 +14,22 @@ class ShowTheme(models.Model):
         return self.name
 
 
+class AstronomyShow(models.Model):
+    title = models.CharField(max_length=255, unique=True, verbose_name="Astronomy Show", blank=False)
+    description = models.TextField()
+    show_themes = models.ManyToManyField(ShowTheme)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ["title"]
+
+
+# class ShowThemeAstronomyShow(models.Model):
+#     show_themes = models.ForeignKey
+
+
 class PlanetariumDome(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name="Planetarium Dome", blank=False)
     rows = models.IntegerField()
@@ -38,17 +54,6 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
-
-
-class AstronomyShow(models.Model):
-    title = models.CharField(max_length=255, unique=True, verbose_name="Astronomy Show", blank=False)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ["title"]
 
 
 class ShowSession(models.Model):
