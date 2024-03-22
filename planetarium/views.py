@@ -40,3 +40,42 @@ class PlanetariumDomeViewSet(
     serializer_class = PlanetariumDomeSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly, )
 
+
+class ReservationViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly, )
+
+
+class AstronomyShowViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
+    queryset = AstronomyShow.objects.all()
+    serializer_class = AstronomyShowSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly, )
+
+
+class ShowSessionViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
+    queryset = ShowSession.objects.all()
+    serializer_class = ShowSessionSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly, )
+
+
+class TicketViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    GenericViewSet,
+):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
+    permission_classes = (IsAdminOrIfAuthenticatedReadOnly, )

@@ -1,0 +1,1 @@
+git commit -am "added for planetarium/views initial: PlanetariumDomeViewSet, ReservationViewSet, AstronomyShowViewSet, ShowSessionViewSet, TicketViewSet; create planetarium\urls, edited planetarium_service\urls"
